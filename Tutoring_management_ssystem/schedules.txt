@@ -1,0 +1,3 @@
+tutor1,Abinet,Math;Physics;Chemistry,Monday,10:00-12:00
+tutor1,kebede,math;physics,tuesday,10:11
+tutor2,Abinet,chemistry,wednesday,12:00 - 1:10
