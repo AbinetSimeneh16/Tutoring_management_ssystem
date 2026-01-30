@@ -5,6 +5,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Student;
 import util.FileHandler;
+import ui.RoleSelectionView;
 
 public class LoginView {
 
@@ -56,12 +57,12 @@ public class LoginView {
                 message.setText("Login successful!");
 
                 if (role.equals("STUDENT")) {
-                    StudentView view = new StudentView(username);
+                    StudentView view = new StudentView(stage,username);
                     stage.getScene().setRoot(view.getView());
                 }
 
                 if (role.equals("TUTOR")) {
-                    TutorView view = new TutorView(username);
+                    TutorView view = new TutorView(stage,username);
                     stage.getScene().setRoot(view.getView());
                 }
 
@@ -73,12 +74,19 @@ public class LoginView {
                 message.setText("Invalid credentials");
             }
         });
+        Button backBtn = new Button("Back");
+
+        backBtn.setOnAction(e -> {
+            RoleSelectionView view = new RoleSelectionView(stage);
+            stage.getScene().setRoot(view.getView());
+        });
 
         root.getChildren().addAll(
                 title,
                 usernameField,
                 passwordField,
                 loginBtn,
+                backBtn,
                 message
         );
     }

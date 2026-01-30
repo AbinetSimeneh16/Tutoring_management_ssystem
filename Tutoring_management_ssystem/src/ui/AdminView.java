@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import util.FileHandler;
+import ui.RoleSelectionView;
 
 public class AdminView {
 
@@ -42,11 +43,18 @@ public class AdminView {
                 FileHandler.write(FileHandler.SCHEDULES,
                         tutorName.getText()+","+student.getText()+","+subject.getText()+","+day.getText()+","+time.getText())
         );
+        Button logoutBtn = new Button("Logout");
+
+        logoutBtn.setOnAction(e -> {
+            RoleSelectionView view = new RoleSelectionView(stage);
+            stage.getScene().setRoot(view.getView());
+        });
 
         root.getChildren().addAll(
                 new Label("ADMIN PANEL"),
                 tutorName, tutorPass, subject,
                 addTutor,
+                logoutBtn,
                 student, day, time,
                 assign
         );

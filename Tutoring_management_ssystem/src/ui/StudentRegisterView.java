@@ -51,6 +51,7 @@ public class StudentRegisterView {
     }
 
     public VBox getView() {
+
         return root;
     }
 }
