@@ -29,7 +29,7 @@ public class LoginView {
         if (role.equals("STUDENT")) {
             Button registerBtn = new Button("Register");
             registerBtn.setOnAction(e -> {
-                StudentRegisterView view = new StudentRegisterView();
+                StudentRegisterView view = new StudentRegisterView(stage);
                 stage.getScene().setRoot(view.getView());
             });
             root.getChildren().add(registerBtn);

@@ -4,14 +4,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import util.FileHandler;
 import java.io.FileWriter;
-
+import javafx.stage.Stage;
 
 
 public class StudentRegisterView {
 
     private VBox root = new VBox(10);
-
-    public StudentRegisterView() {
+    private Stage stage;
+    public StudentRegisterView(Stage stage) {
+        this.stage = stage;
 
         Label title = new Label("Student Registration");
 
@@ -40,12 +41,19 @@ public class StudentRegisterView {
 
             message.setText("Registration successful! You can now login.");
         });
+        Button backBtn = new Button("Back");
+
+        backBtn.setOnAction(e -> {
+            RoleSelectionView view = new RoleSelectionView(stage);
+            stage.getScene().setRoot(view.getView());
+        });
 
         root.getChildren().addAll(
                 title,
                 usernameField,
                 passwordField,
                 registerBtn,
+                backBtn,
                 message
         );
     }
