@@ -20,19 +20,14 @@ public class FileHandler {
             e.printStackTrace();
         }
     }
-
     public static boolean validateLogin(String fileName, String username, String password) {
         try {
             File file = new File(fileName);
-
             if (!file.exists()) return false;
-
             Scanner scanner = new Scanner(file);
-
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(",");
-
                 if (parts.length >= 2) {
                     if (parts[0].equals(username) && parts[1].equals(password)) {
                         scanner.close();
@@ -46,8 +41,6 @@ public class FileHandler {
         }
         return false;
     }
-
-
     public static void write(String file, String line) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
             bw.write(line);
@@ -56,7 +49,6 @@ public class FileHandler {
             e.printStackTrace();
         }
     }
-
     public static List<String> read(String file) {
         List<String> list = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
