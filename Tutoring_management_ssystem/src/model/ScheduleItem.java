@@ -2,10 +2,12 @@ package model;
 
 public class ScheduleItem {
 
+
     private String studentName;
     private String subject;
     private String day;
     private String time;
+
 
     public ScheduleItem(String studentName, String subject, String day, String time) {
         this.studentName = studentName;
@@ -13,6 +15,7 @@ public class ScheduleItem {
         this.day = day;
         this.time = time;
     }
+
 
     @Override
     public String toString() {
